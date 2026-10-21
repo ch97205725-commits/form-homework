@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>설문지 - 입력 양식 과제</title>
+  <style>
+    body {
+      background: #f0ebf8;
+      font-family: "Malgun Gothic", sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 12px;
+      border: 1px solid #dadce0;
+    }
+    .header {
+      border-top: 10px solid #673ab7;
+    }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    .question { font-size: 16px; font-weight: bold; margin-bottom: 12px; }
+    .required { color: #d93025; }
+    input[type="text"], input[type="email"], textarea, select {
+      width: 100%;
+      padding: 8px 0;
+      border: none;
+      border-bottom: 1px solid #dadce0;
+      font-size: 15px;
+      outline: none;
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+      border-bottom: 2px solid #673ab7;
+    }
+    label.option { display: block; margin: 8px 0; cursor: pointer; }
+    .buttons { display: flex; justify-content: space-between; }
+    input[type="submit"] {
+      background: #673ab7; color: white; border: none;
+      padding: 10px 24px; border-radius: 4px; font-size: 15px; cursor: pointer;
+    }
+    input[type="reset"] {
+      background: none; color: #673ab7; border: none;
+      font-size: 15px; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- 설문 제목 -->
+    <div class="card header">
+      <h1>UX/UI 수업 만족도 설문</h1>
+      <p>입력 양식 태그(form, input)를 이용해 만든 설문지입니다.</p>
+      <p class="required">* 표시는 필수 질문입니다</p>
+    </div>
+
+    <!-- form 태그로 입력 영역 생성 / method: 전달 방식, action: 전달 장소 -->
+    <form method="get" action="#">
+
+      <!-- 1. 텍스트 입력 -->
+      <div class="card">
+        <div class="question">이름 <span class="required">*</span></div>
+        <input type="text" name="name" placeholder="내 답변" required>
+      </div>
+
+      <!-- 2. 이메일 입력 -->
+      <div class="card">
+        <div class="question">이메일 <span class="required">*</span></div>
+        <input type="email" name="email" placeholder="example@email.com" required>
+      </div>
+
+      <!-- 3. 라디오 버튼 (하나만 선택) -->
+      <div class="card">
+        <div class="question">학년 <span class="required">*</span></div>
+        <label class="option"><input type="radio" name="grade" value="1" required> 1학년</label>
+        <label class="option"><input type="radio" name="grade" value="2"> 2학년</label>
+        <label class="option"><input type="radio" name="grade" value="3"> 3학년</label>
+      </div>
+
+      <!-- 4. 체크박스 (여러 개 선택) -->
+      <div class="card">
+        <div class="question">관심 있는 분야를 모두 골라주세요</div>
+        <label class="option"><input type="checkbox" name="interest" value="html"> HTML</label>
+        <label class="option"><input type="checkbox" name="interest" value="css"> CSS</label>
+        <label class="option"><input type="checkbox" name="interest" value="js"> JavaScript</label>
+        <label class="option"><input type="checkbox" name="interest" value="design"> UI 디자인</label>
+      </div>
+
+      <!-- 5. 선택 목록 -->
+      <div class="card">
+        <div class="question">수업 만족도</div>
+        <select name="satisfaction">
+          <option value="">선택</option>
+          <option value="5">매우 만족</option>
+          <option value="4">만족</option>
+          <option value="3">보통</option>
+          <option value="2">불만족</option>
+          <option value="1">매우 불만족</option>
+        </select>
+      </div>
+
+      <!-- 6. 여러 줄 입력 -->
+      <div class="card">
+        <div class="question">하고 싶은 말</div>
+        <textarea name="comment" rows="3" placeholder="내 답변"></textarea>
+      </div>
+
+      <!-- 제출 / 초기화 버튼 -->
+      <div class="buttons">
+        <input type="submit" value="제출">
+        <input type="reset" value="양식 지우기">
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>
